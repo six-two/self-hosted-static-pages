@@ -1,0 +1,3 @@
+[submodule "reverse-shell-generator"]
+	path = reverse-shell-generator
+	url = https://github.com/0dayCTF/reverse-shell-generator
