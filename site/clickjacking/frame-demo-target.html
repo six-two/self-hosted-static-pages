@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe demo target</title>
+</head>
+<body>
+    <style>
+        body {
+            background-color: lightgray;
+        }
+    </style>
+    <h1>iframe demo target</h1>
+    
+    This page should likely be framable (you should see this text), unless you set specific headers on your server to prohibit it.
+    
+    Try other sites like:
+    
+    <ul>
+        <li>https://example.com (frameable)</li>
+        <li>https://google.com (not frameable)</li>
+        <li>https://duckduckgo.com (not frameable)</li>
+        <li>https://neverssl.com (frameable)</li>
+        <li>https://six-two.dev (frameable)</li>
+        <li>Your own web site(s)</li>
+    </ul>
+
+    By design entirely static web sites or web sites without any login functionality/user sessions are usually not really vulnerable to clickjacking attacks, unless there are more complicated measures like IP address based access control in use.
+    The reason is, that the attacker could just send the desired requests directly to the server.<br>
+
+    Tests should be performed as an logged in user, since only they are useful targets for clickjacking attacks.
+    Actually go through workflows that seem exploitable, because sometimes they may involve a redirect to a third party server that has clickjacking protections and will ruin your attack.
+    
+    <hr>
+    
+    Note: Framable status as of July 8, 2023
+</body>
+</html>
+

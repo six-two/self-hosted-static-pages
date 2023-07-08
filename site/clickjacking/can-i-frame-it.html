@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Can I frame it?</title>
+</head>
+<body>
+    <!-- Header bar. Needs to be outsite the .root's padding, otherwise the the background color does not reach the edges of the page -->
+    <div class="input-div">
+        URL to test:
+        <input id="target-url">
+        <button id="button-go">GO!</button>
+    </div>
+    <div class="root">
+        <span>Your page is embedded below using an <code>iframe</code> tag. If it loads, you may be vulnerable to <a href="https://portswigger.net/web-security/clickjacking">clickjacking attacks</a>. Use a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">Content Security Policy</a> with the <code>default-src</code> or <code>frame-ancestors</code> directive or set the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options"><code>X-Frame-Options</code></a> header.</span>
+        <iframe id="target-iframe"></iframe>
+    </div>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            height: 100vh;
+            margin: 0px;
+        }
+        
+        .root {
+            padding: 5px;
+        }
+        
+        body, .root {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .input-div {
+            display: flex;
+            align-items: baseline; /* make the label look correctly */
+            background: gray;
+            color: white;
+            padding: 6px;
+        }
+
+        #target-url, #target-iframe {
+            flex: 1;
+        }
+
+        #target-url {
+            margin: 0px 10px;
+        }
+
+        #target-iframe {
+            margin-top: 5px;
+        }
+    </style>
+    <script>
+        const SCHEME_REGEX = RegExp("^https?://");
+        const button = document.getElementById("button-go");
+        const input = document.getElementById("target-url");
+        const iframe = document.getElementById("target-iframe");
+
+        const update_iframe = () => {
+            const url = input.value;
+            if (!SCHEME_REGEX.test(url)) {
+                alert("You likely want to start your input with 'http://' or 'https://'. Otherwise the test will probably not work correctly.");
+                // Warn users but still attempt it, just in case they wanted to test something like file://path/to/html/page/that/contains/a/csp/as/a/html/element.html
+            }
+            iframe.src = ""; //set it to empty, so that if I click go again whichout changing the URL, it will actually relaod the page
+            iframe.src = input.value;
+        }
+
+        // Update the page when the Enter key is pressed in the input or when you click the GO! button
+        button.addEventListener("click", update_iframe);
+        input.addEventListener("change", update_iframe);//@TODO: does not currently work for reloading the target page -> listen for enter key?
+
+        // Set and use the initial value from the text field
+        // A local site is used to not leak infos to third party servers like example.com
+        input.value = location.href.toLowerCase().split("/can-i-frame-it.html")[0] + "/frame-demo-target.html";
+        update_iframe();
+    </script>
+</body>
+</html>

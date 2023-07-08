@@ -14,15 +14,196 @@
                 <li><a href="qr.html/qr.html">normal</a> (<a href="qr.html/qr.html" download="qr-normal.html">download</a>)</li>
                 <li><a href="qr.html/tiny-qr.html">minimal</a> (<a href="qr.html/tiny-qr.html" download="qr-minimal.html">download</a>)</li>
             </ul>
+        </li>
         <li><a href="self-unzip.html/site/">Self-decompressing page creator</a> (useful for smuggling malicious files through web proxy filters)</li>
+        <li><a href="clickjacking/can-i-frame-it.html">Test URL for embedding as iframe (clickjacking)</a></li>
         <li>TODO: common exes as raw and encoded</li>
         <li>TODO: malicious and harmless image files</li>
         <li>TOOD: JS file for include as XSS PoC</li>
-        <li>TODO: iframe/clickjacking</li>
         <li>TODO: Page with iframe file:// common paths as download</li>
         <li>TODO: Compile and include https://github.com/six-two/react-file2qr</li>
         <li>TODO: phishing login formular?</li>
     </ul>
-</body>
+
+    <hr>
+
+    Have you looked at this page with Burpsuite / ZAProxy?
+    <!-- BTW if there is an easy way to solve this, would you be so kind and tell me? (Excluding the obvious solution of uncommenting it and letting the browser do the work.) Just in case I need to test any page looking like that ever again. -->
+
+<!-- CHALLENGE::DESCRIPTION If you rendered the content below, what would the text be?
+     CHALLENGE::START
+
+        &lt;span>How 
+        do 
+you &#x0061;&#x006e;&#x006e;&#x006f;&#x0079; a pentester reading your 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                             page's source code?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        &lt;/div>
+        CHALLENGE::END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- To disable the almost trivial solution of just using your browser's developer tools -->
+    <script class="self-destruct">
+        // This nice little script removes all comments from the DOM #SecurityByObscurity
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_COMMENT);
+        const to_remove = [];
+        while (node = walker.nextNode()) {
+            to_remove.push(node);
+            console.log("Comment", node);
+        }
+        for (node of to_remove) {
+            node.remove();
+        }
+
+        // and now it deletes itself, so that you (hopefully) do not see my incriminating comment above in your DOM Inspector :)
+        for (node of document.querySelectorAll("script.self-destruct")) {
+            node.remove();
+        }
+    </script>
+
+    </body>
 </html>
 
