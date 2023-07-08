@@ -1,5 +1,7 @@
 {
     "github": {
         "silent": true
-    }
+    },
+    "buildCommand": "git submodule update --init --recursive",
+    "outputDirectory": "site"
 }
