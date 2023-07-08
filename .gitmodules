@@ -4,3 +4,6 @@
 [submodule "site/qr.html"]
 	path = site/qr.html
 	url = https://github.com/six-two/qr.html
+[submodule "site/self-unzip.html"]
+	path = site/self-unzip.html
+	url = https://github.com/six-two/self-unzip.html

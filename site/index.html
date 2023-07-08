@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pentest page listing</title>
+    <title>Pentest pages</title>
 </head>
 <body>
-    <h1>Pentest page listing</h1>
+    <h1>Pentest pages</h1>
     <ul>
-        <li><a href="reverse-shell-generator/">Reverse shell generator (by 0dayCTF)</a></li>
-        <li>QR code generators (<a href="qr.html/qr.html">normal</a>, <a href="qr.html/tiny-qr.html">minimal</a>)</li>
+        <li><a href="reverse-shell-generator/">Reverse shell generator</a> (by 0dayCTF)</li>
+        <li>QR code generators:
+            <ul>
+                <li><a href="qr.html/qr.html">normal</a> (<a href="qr.html/qr.html" download="qr-normal.html">download</a>)</li>
+                <li><a href="qr.html/tiny-qr.html">minimal</a> (<a href="qr.html/tiny-qr.html" download="qr-minimal.html">download</a>)</li>
+            </ul>
+        <li><a href="self-unzip.html/site/">Self-decompressing page creator</a> (useful for smuggling malicious files through web proxy filters)</li>
+        <li>TODO: common exes as raw and encoded</li>
+        <li>TODO: malicious and harmless image files</li>
+        <li>TOOD: JS file for include as XSS PoC</li>
+        <li>TODO: iframe/clickjacking</li>
+        <li>TODO: Page with iframe file:// common paths as download</li>
+        <li>TODO: Compile and include https://github.com/six-two/react-file2qr</li>
+        <li>TODO: phishing login formular?</li>
     </ul>
 </body>
 </html>
