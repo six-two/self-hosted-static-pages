@@ -1,3 +1,6 @@
 [submodule "reverse-shell-generator"]
-	path = reverse-shell-generator
+	path = site/reverse-shell-generator
 	url = https://github.com/0dayCTF/reverse-shell-generator
+[submodule "site/qr.html"]
+	path = site/qr.html
+	url = https://github.com/six-two/qr.html
