@@ -4,7 +4,17 @@ These are some static pages and files that sometimes are useful during pentests.
 
 ## Setup
 
-Just configure a **static** webserver to serve the files in `site/`.
+Clone this repository and it's submodules:
+```bash
+git clone --recurse-submodules https://github.com/six-two/self-hosted-static-pages.git
+```
+
+Or if you already did a normal clone, run this to download the submodules:
+```bash
+git submodule update --init --recursive
+```
+
+Then configure a **static** webserver to serve the files in `site/`.
 
 ### Security considerations
 

@@ -1,4 +1,4 @@
-[submodule "reverse-shell-generator"]
+[submodule "site/reverse-shell-generator"]
 	path = site/reverse-shell-generator
 	url = https://github.com/0dayCTF/reverse-shell-generator
 [submodule "site/qr.html"]
