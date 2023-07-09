@@ -14,6 +14,9 @@ Or if you already did a normal clone, run this to download the submodules:
 git submodule update --init --recursive
 ```
 
+If you want the page to also have some useful binaries for downloading, run `./download-binaries.sh`.
+Sadly they are way to big to ship with the git repository, so you may want to take this extra step.
+
 Then configure a **static** webserver to serve the files in `site/`.
 
 ### Security considerations

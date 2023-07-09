@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images</title>
+</head>
+<body>
+    <h1>Images</h1>
+
+    <ul>
+        <li>Harmless images:
+            <ul>
+                <li><a href="harmless.bmp">BMP</a></li>
+                <li><a href="harmless.jpeg">JPEG</a></li>
+                <li><a href="harmless.png">PNG</a></li>
+                <li><a href="harmless.svg">SVG</a></li>
+            </ul>
+        </li>
+        <li>XSS SVGs:
+            <ul>
+                <li><a href="xss-console.svg">just log with console.error</a></li>
+                <li><a href="xss-console-alert.svg">alert</a></li>
+                <li><a href="xss-console-prompt.svg">prompt</a></li>
+                <li><a href="xss-console-confirm.svg">confirm</a></li>
+                <li><a href="xss-console-alert_cookies.svg">alert of document.cookie</a></li>
+                <li><a href="xss-console-alert_location_url.svg">alert of location.href</a></li>
+                <li><a href="xss-console-eval_hash.svg">eval of location.hash</a> (Usage: add code to evaluate as hash to the URL of the page like <code><a href="xss-console-eval_hash.svg#alert(location.href)">xss-console-eval_hash.svg#alert(location.href)</a></code>)</li>
+            </ul>
+        </li>
+        <li>Denial of Service:
+            <ul>
+                <li><a href="lottapixel.jpg">lottapixel.jpg</a> (JPEG with maximum dimensions)</li>
+            </ul>
+        </li>
+    </ul>
+    <hr>
+    Tips:
+    <ul>
+        <li>You can customize <code>xss-template.svg</code> and run <code>create-xss-svg-variants.sh</code> to generate custom images.</li>
+        <li>You can also customize the harmless images by modifying <code>harmless.svg</code> and running <code>create-harmless-svg-variants.sh</code>.</li>
+    </ul>
+</body>
+</html>

@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-SYSINT="site/binaries/sysinternals"
 
 # Switch to the directory of this file
 cd "$( dirname "${BASH_SOURCE[0]}" )"
@@ -17,6 +16,7 @@ echo "[*] Installing python packages"
 pip install -U self-unzip.html
 
 ################################### SYSINTERNALS ##############################
+SYSINT="site/binaries/sysinternals"
 echo "[*] Creating and entering $SYSINT direcotry"
 if [[ -d tmp-build ]]; then
     rm -rf $SYSINT
@@ -30,7 +30,7 @@ curl https://download.sysinternals.com/files/SysinternalsSuite.zip -o sysinterna
 # Only tested on mac, check on linux
 unzip sysinternals.zip
 
-# Create index file
+# Create index file. It is outsite the directory, since otherwise the * wildcard would include it too.
 cat << EOF > ../sysinternals.html
 <!DOCTYPE html>
 <html lang="en">
@@ -51,6 +51,7 @@ for FILE in *; do
         # example: test.exe -> html/test-exe.html
         OUTPUT_FILE="$(basename "$FILE" | tr . - | sed -e 's|^|html/|' -e 's/$/.html/')"
         echo "[*] $FILE -> $OUTPUT_FILE"
+        # add an entry to the index file
         echo -e "<li><a href='sysinternals/$FILE'>$(basename "$FILE")</a> (<a href='sysinternals/$OUTPUT_FILE'>HTML</a>)</li>" >> ../sysinternals.html
         # gzip since most files are well compressable
         # ascii85 since it is smaller for larger files
@@ -64,6 +65,7 @@ for FILE in *; do
     fi
 done
 
+# Finish the index file
 cat << EOF >> ../sysinternals.html
 </body>
 </html>
