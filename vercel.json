@@ -2,6 +2,6 @@
     "github": {
         "silent": true
     },
-    "buildCommand": "git submodule update --init --recursive",
+    "buildCommand": "git submodule update --init --recursive; ./download-binaries.sh",
     "outputDirectory": "site"
 }
