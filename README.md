@@ -26,8 +26,12 @@ have no web shells.
 So you should use a web server that is not configured to evaluate files (PHP, ASPX, etc), instead it should just serve them as static files.
 
 You should also serve the site from a separate domain, that ideally is not connected to other productive sites (and not a subdomain of these sites).
-This is because some functionality may be added that might execute arbitrary user supplied JavaScript code, which functionally means that Cross-Site Scripting attackes may exist on the site.
+This is because some functionality may be added that might execute arbitrary user supplied JavaScript code, which functionally means that Cross-Site Scripting attacks may exist on the site.
 So use a separate domain, so that `localStorage`, cookies, etc from other apps are not in any danger.
+
+You may also want to set a strict Content-Security-Policy for some tools such as CyberChef to prevent them from potentially sending confidential information somewhere else.
+See `vercel.json` for an example which settings may work.
+If you use a blanket rule, the clickjacking page will likely not work or the other applications could exfiltrate data via iframes.
 
 ### "Exposed sensitive files"
 

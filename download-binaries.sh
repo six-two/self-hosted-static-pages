@@ -24,7 +24,7 @@ fi
 mkdir -p $SYSINT
 cd $SYSINT
 
-echo "[*] Downloading Microfoft's sysinternals"
+echo "[*] Downloading Microsoft's sysinternals"
 curl https://download.sysinternals.com/files/SysinternalsSuite.zip -o sysinternals.zip
 
 # Only tested on mac, check on linux

@@ -5,3 +5,5 @@ venv
 tmp-build
 site/binaries/sysinternals/
 site/binaries/sysinternals.html
+site/cyberchef/
+.vercel
