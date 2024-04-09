@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increment Number</title>
+</head>
+<body>
+    <p>Each time you click the button or load this page the counter is increased by one. Lt is stored in the <code>localStorage</code> object of the site.</p>
+    <p>You can use this page to test whether two tabs, windows, etc share the same local storage and how it is handled for weird configurations (embedding, file URLs, etc)</p>
+    <button id="incrementButton">Increment</button>
+    <p id="numberDisplay">0</p>
+
+    <script>
+        const update = () => {
+            number = parseInt(localStorage.getItem('number')) || 0;
+            number++;
+            document.getElementById('numberDisplay').textContent = number;
+            localStorage.setItem('number', number);
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('incrementButton').addEventListener('click', update);
+            update();
+        });
+    </script>
+</body>
+</html>
