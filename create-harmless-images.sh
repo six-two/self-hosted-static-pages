@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Run this after updating/changing the site/images/xss-template.svg file to generate the variants of it
+# Run this after updating/changing the site/images/harmless.svg file to generate the variants of it
 
 # Switch to the directory of this file
 cd "$( dirname "${BASH_SOURCE[0]}" )"
